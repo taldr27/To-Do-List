@@ -4,7 +4,6 @@
   --clr-background: hsl(0, 0%, 96%);
 }
 
-
 * {
   margin: 0;
   padding: 0;
@@ -36,8 +35,8 @@ body {
 }
 
 .container > * {
-    border-bottom: 1px solid #80808040;
-    padding: 0.7em;
+  border-bottom: 1px solid #80808040;
+  padding: 0.7em;
 }
 
 .ul-container {
@@ -63,9 +62,5 @@ body {
 }
 
 .toDoList li {
-    border-bottom: 1px solid #80808040;
-    
+  border-bottom: 1px solid #80808040;
 }
-
-
-
