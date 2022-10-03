@@ -2,13 +2,14 @@
 
 # Title
 
-> /Description/.
+> In this project I created a to do list where you can add, edit and delete tasks.
 
 ## Built With
 
-- 
-- 
-- 
+- HTML
+- JavaScript
+- CSS
+- WebPack
 
 ## Getting Started
 
@@ -16,7 +17,7 @@
 - Open the .html
 
 ### Live GitHub Page
-- 
+- Coming soon!
 
 ## Authors
 
