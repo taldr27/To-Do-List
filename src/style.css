@@ -1,4 +1,71 @@
+:root {
+  --clr-primary: #000;
+  --clr-secondary: #fff;
+  --clr-background: hsl(0, 0%, 96%);
+}
+
+
 * {
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
+
+body {
+  background-color: var(--clr-background);
+}
+
+.container {
+  background-color: var(--clr-secondary);
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.input-task {
+  width: 80%;
+  border-color: transparent;
+}
+
+#addBtn {
+  width: 9%;
+  position: absolute;
+  background-color: transparent;
+  border-color: transparent;
+  text-align: end;
+}
+
+.container > * {
+    border-bottom: 1px solid #80808040;
+    padding: 0.7em;
+}
+
+.ul-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.ul-container li {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 0.5em;
+}
+
+.fa-solid {
+  margin-left: auto;
+}
+
+.clearCompleted {
+  width: 100%;
+  padding: 0.5em;
+}
+
+.toDoList li {
+    border-bottom: 1px solid #80808040;
+    
+}
+
+
 
