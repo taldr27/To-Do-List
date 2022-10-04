@@ -16,12 +16,16 @@ export default class Store {
     localStorage.setItem('toDos', JSON.stringify(toDos));
   }
 
-  static deleteTask(id) {
+  static deleteTask(element) {
     const toDos = Store.getToDos();
-    toDos.forEach((toDo, index) => {
-      if (toDo.index === id) {
-        toDos.splice(index, 1);
+    toDos.forEach((toDo, id) => {
+      if (toDo.index === element) {
+        toDos.splice(id, 1);
+        console.log(toDo, id);
       }
+    });
+    toDos.forEach((toDo, i) => {
+      toDo.index = i + 1;
     });
     localStorage.setItem('toDos', JSON.stringify(toDos));
   }
