@@ -1,7 +1,7 @@
 :root {
   --clr-primary: #000;
   --clr-secondary: #fff;
-  --clr-background: hsl(0, 0%, 96%);
+  --clr-background: hsla(0, 0%, 0%, 0.116);
 }
 
 * {
@@ -21,22 +21,48 @@ body {
   width: 50%;
 }
 
+.b-bottom {
+  border-bottom: 3px solid var(--clr-background);
+}
+
+
+input {
+  border: none;
+  outline: none;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2em;
+  gap: 1em;
+}
+
+.clearbtn {
+  background-color: #eee;
+}
+
+.clr-all:hover {
+  background-color: #302b2b;
+}
+
+.full {
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: var(--clr-secondary);
+}
+
 .input-task {
   width: 100%;
   border-color: transparent;
   padding-block: 1em;
 }
 
-#addBtn {
-  width: 5%;
-  background-color: transparent;
-  border-color: transparent;
-  cursor: pointer;
-}
-
 .form {
   display: flex;
-  align-items: center;
 }
 
 .container > * {
@@ -48,7 +74,7 @@ input:focus {
   outline: none;
 }
 
-.ul-container {
+.task-list {
   display: flex;
   flex-direction: column;
   padding: 0;

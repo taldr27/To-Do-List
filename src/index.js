@@ -1,12 +1,23 @@
-import add from './modules/addToDo.js';
-import interfaces from './modules/interfaceClass.js';
-import edit from './modules/editToDo.js';
-import clearTasks from './modules/clear.js';
 import './style.css';
+import addTask from './modules/addToDo.js';
+import displayTasks from './modules/interfaceClass.js';
+import clearTasks from './modules/clear.js';
 
-document.querySelector('#form-section').addEventListener('submit', add);
-document.querySelector('#addBtn').addEventListener('click', add);
+const form = document.querySelector('.form');
 
-document.querySelector('#toDoList').addEventListener('click', edit);
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const input = Object.fromEntries(new FormData(e.target));
+  addTask(input.task);
+  displayTasks();
+});
 
-document.addEventListener('DOMContentLoaded', interfaces.displayTasks);
+const clearBtn = document.querySelector('.clearbtn');
+
+clearBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  clearTasks();
+  displayTasks();
+});
+
+displayTasks();

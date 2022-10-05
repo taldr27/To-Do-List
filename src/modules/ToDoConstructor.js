@@ -1,7 +1,7 @@
-export default class ToDos {
-  constructor(index, value) {
+export default class Task {
+  constructor(index, description) {
     this.index = index;
-    this.value = value;
+    this.description = description;
     this.completed = false;
   }
 }
