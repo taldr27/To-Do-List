@@ -1,52 +1,44 @@
 export default function displayTasks() {
-  const taskList = document.querySelector('.task-list');
+  const toDoList = document.querySelector('.task-list');
 
-  let toDos = JSON.parse(localStorage.getItem('taskArr')) || [];
+  let toDos = JSON.parse(localStorage.getItem('toDos')) || [];
 
-  taskList.innerHTML = '';
+  toDoList.innerHTML = '';
   toDos.map((task) => {
-    const taskItem = document.createElement('li');
-    let box;
+    const item = document.createElement('li');
+    let checkP;
     let styling;
     if (task.completed) {
-      box = 'checked';
+      checkP = 'checked';
       styling = 'line-through';
     } else {
-      box = '';
+      checkP = '';
       styling = 'none';
     }
-    taskItem.innerHTML = `<form class="task-form b-bottom box">
-      <input name="completed" type="checkbox" ${box} class="checkbox">
-      <textarea name="description" class="task-text size" style="text-decoration:${styling}">${task.description}</textarea>
-      <button type="button" class="delete btn">X</button>
-      <button type="submit" class="update btn">Save</button>
+    item.innerHTML = `<form class="task-form b-bottom box"><input name="completed" type="checkbox" ${checkP} class="checkbox"><textarea name="description" class="task-text size" style="text-decoration:${styling}">${task.description}</textarea><button type="button" class="btn delete">X</button>
+      <button type="submit" class="btn update">Save</button>
       </form>`;
-    taskList.appendChild(taskItem);
+    toDoList.appendChild(item);
 
-    const deleteBtn = taskItem.querySelector('.delete');
-    const updateBtn = taskItem.querySelector('.update');
-    const updateText = taskItem.querySelector('.task-text');
+    const deleteBtn = item.querySelector('.delete');
+    const updateBtn = item.querySelector('.update');
+    const updateText = item.querySelector('.task-text');
 
     updateBtn.style.display = 'none';
 
-    updateText.addEventListener('click', (e) => {
-      e.preventDefault();
+    updateText.addEventListener('click', () => {
       updateBtn.style.display = 'block';
-      deleteBtn.style.display = 'none';
-      updateText.style.backgroundColor = '#f4f4f4';
     });
 
-    const taskForm = taskItem.querySelector('.task-form');
+    const taskForm = item.querySelector('.task-form');
     taskForm.addEventListener('submit', (e) => {
-      e.preventDefault();
       const input = Object.fromEntries(
         new FormData(e.target),
       );
       task.description = input.description;
-      localStorage.setItem('taskArr', JSON.stringify(toDos));
+      localStorage.setItem('toDos', JSON.stringify(toDos));
       updateBtn.style.display = 'none';
       deleteBtn.style.display = 'block';
-      updateText.style.backgroundColor = '#fff';
     });
 
     deleteBtn.addEventListener('click', (e) => {
@@ -58,14 +50,14 @@ export default function displayTasks() {
         return item;
       });
       toDos = temp;
-      localStorage.setItem('taskArr', JSON.stringify(toDos));
-      taskList.removeChild(taskItem);
+      localStorage.setItem('toDos', JSON.stringify(toDos));
+      toDoList.removeChild(item);
     });
 
-    const checkbox = taskItem.querySelector('.checkbox');
+    const checkbox = item.querySelector('.checkbox');
     checkbox.addEventListener('change', () => {
       task.completed = checkbox.checked;
-      localStorage.setItem('taskArr', JSON.stringify(toDos));
+      localStorage.setItem('toDos', JSON.stringify(toDos));
 
       if (task.completed) {
         updateText.style.textDecoration = 'line-through';
@@ -74,6 +66,6 @@ export default function displayTasks() {
       }
     });
 
-    return taskList;
+    return toDoList;
   });
 }
