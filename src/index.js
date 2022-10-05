@@ -5,5 +5,6 @@ import './style.css';
 
 document.addEventListener('DOMContentLoaded', interfaces.displayTasks);
 document.querySelector('#form-section').addEventListener('submit', add);
+document.querySelector('#addBtn').addEventListener('click', add);
 
 document.querySelector('#toDoList').addEventListener('click', edit);
