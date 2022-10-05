@@ -39,4 +39,15 @@ export default class Store {
     });
     localStorage.setItem('toDos', JSON.stringify(toDos));
   }
+
+  static checkTask(comp, id) {
+    const toDos = Store.getToDos();
+    toDos.forEach((toDo) => {
+      if (toDo.index === id) {
+        toDo.completed = comp;
+        console.log(toDo);
+      }
+    });
+    localStorage.setItem('toDos', JSON.stringify(toDos));
+  }
 }

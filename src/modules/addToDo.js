@@ -3,7 +3,7 @@ import Store from './store.js';
 import ToDos from './ToDoConstructor.js';
 
 const add = (e) => {
-  const completed = 'asd';
+  // const completed = check.checkToDo();
   e.preventDefault();
   const text = document.getElementById('input-task').value;
 
@@ -16,7 +16,7 @@ const add = (e) => {
   } else {
     const toIndex = Store.getToDos().length + 1;
 
-    const toDo = new ToDos(text, completed, toIndex);
+    const toDo = new ToDos(text, true, toIndex);
 
     Interface.addTask(toDo);
     Store.addTask(toDo);
