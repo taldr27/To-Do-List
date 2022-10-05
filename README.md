@@ -14,7 +14,9 @@
 ## Getting Started
 
 ### Usage
-- Open the .html
+- Clone repo
+- Then use npm install webpack webpack-cli --save-dev
+- The use npm run start
 
 ### Live GitHub Page
 - Coming soon!
