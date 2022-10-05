@@ -9,9 +9,15 @@ export default class Interface {
   static addTask(toDo) {
     const ulList = document.getElementById('toDoList');
     const task = document.createElement('li');
-    task.innerHTML = `<input type="checkbox" name="completed" id="completed"> <textarea id="task-value" readonly="readonly" class="text-area">${toDo.value}</textarea> <button id=${toDo.index} class="edit">Edit</button>
-        <button id=${toDo.index} class="delete">Delete</button>`;
+    task.innerHTML = `<input type="checkbox" name="completed" id="completed"> <textarea id="task-value" readonly="readonly" class="text-area">${toDo.value}</textarea> <button id=${toDo.index} class="edit">Edit</button>`;
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerHTML = `<button id=${toDo.index} class="delete">Delete</button>`;
     ulList.appendChild(task);
+    task.appendChild(deleteBtn);
+    deleteBtn.addEventListener('click', () => {
+      deleteBtn.parentElement.remove();
+      Store.deleteTask(toDo.index);
+    });
   }
 
   static deleteTask(el) {
