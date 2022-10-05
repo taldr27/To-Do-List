@@ -32,7 +32,7 @@ export default class Interface {
       // eT.id = 'edit';
       eT.className = 'edit';
       eT.previousElementSibling.readOnly = true;
-      console.log(eT.previousElementSibling.value, eT.id);
+      console.log(eT.previousElementSibling.value, eT.id, eT);
       Store.editTask(eT.previousElementSibling.value, eT.id);
     }
   }

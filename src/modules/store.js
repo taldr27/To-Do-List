@@ -21,7 +21,7 @@ export default class Store {
     toDos.forEach((toDo, id) => {
       if (toDo.index === element) {
         toDos.splice(id, 1);
-        console.log(element);
+        console.log(id);
       }
     });
     toDos.forEach((toDo, i) => {
