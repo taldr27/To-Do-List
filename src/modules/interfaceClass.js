@@ -9,7 +9,7 @@ export default class Interface {
   static addTask(toDo) {
     const ulList = document.getElementById('toDoList');
     const task = document.createElement('li');
-    task.innerHTML = `<input type="checkbox" name="completed" id="completed"> ${toDo.value} <button class="edit">Edit</button>
+    task.innerHTML = `<input type="checkbox" name="completed" id="completed"> <textarea id="task-value" readonly="readonly" class="text-area">${toDo.value}</textarea> <button id=${toDo.index} class="edit">Edit</button>
         <button id=${toDo.index} class="delete">Delete</button>`;
     ulList.appendChild(task);
   }
@@ -17,6 +17,23 @@ export default class Interface {
   static deleteTask(el) {
     if (el.classList.contains('delete')) {
       el.parentElement.remove();
+    }
+  }
+
+  static editTask(eT) {
+    if (eT.classList.contains('edit')) {
+      eT.previousElementSibling.removeAttribute('readonly');
+      eT.previousElementSibling.focus();
+      eT.innerText = 'Save';
+      // eT.id = 'save';
+      eT.className = 'save';
+    } else if (eT.classList.contains('save')) {
+      eT.innerText = 'Edit';
+      // eT.id = 'edit';
+      eT.className = 'edit';
+      eT.previousElementSibling.readOnly = true;
+      console.log(eT.previousElementSibling.value, eT.id);
+      Store.editTask(eT.previousElementSibling.value, eT.id);
     }
   }
 }

@@ -21,11 +21,21 @@ export default class Store {
     toDos.forEach((toDo, id) => {
       if (toDo.index === element) {
         toDos.splice(id, 1);
-        console.log(toDo, id);
+        console.log(element);
       }
     });
     toDos.forEach((toDo, i) => {
       toDo.index = i + 1;
+    });
+    localStorage.setItem('toDos', JSON.stringify(toDos));
+  }
+
+  static editTask(value, idx) {
+    const toDos = Store.getToDos();
+    toDos.forEach((toDo) => {
+      if (toDo.index === parseInt(idx, 10)) {
+        toDo.value = value;
+      }
     });
     localStorage.setItem('toDos', JSON.stringify(toDos));
   }

@@ -3,7 +3,7 @@ import Store from './store.js';
 
 const remove = (e) => {
   Interface.deleteTask(e.target);
-  // Sending value id to eliminate as "element"
+  // Remove book from Local Storage
   Store.deleteTask(parseInt(e.target.id, 10));
 };
 
