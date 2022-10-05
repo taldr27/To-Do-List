@@ -1,61 +1,30 @@
-import Store from './store.js';
+export default function displayTasks() {
+  const taskList = document.querySelector('.toDoList');
 
-export default class Interface {
-  static displayTasks() {
-    const toDos = Store.getToDos();
-    toDos.forEach((toDo) => Interface.addTask(toDo));
-  }
+  /* Display Tasks */
+  let parsedArr = JSON.parse(localStorage.getItem('taskArr')) || [];
 
-  static addTask(toDo) {
-    const ulList = document.getElementById('toDoList');
-    const task = document.createElement('li');
-    const check = document.createElement('button');
-    check.type = 'checkbox';
-    check.name = 'completed';
-    check.id = 'completed';
-    task.appendChild(check);
-
-    check.addEventListener('click', (e) => {
-      if (e.target.checked) {
-        toDo.completed = true;
-      } else {
-        toDo.completed = false;
-      }
-      Store.checkTask(toDo.completed, toDo.index);
-      localStorage.setItem('checkbox1zaal1', check.checked);
-    });
-
-    task.innerHTML = `<textarea id="task-value" readonly="readonly" class="text-area">${toDo.value}</textarea> <button id=${toDo.index} class="edit">Edit</button>`;
-    const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = `<button id=${toDo.index} class="delete">Delete</button>`;
-    ulList.appendChild(task);
-    task.appendChild(deleteBtn);
-    deleteBtn.addEventListener('click', () => {
-      deleteBtn.parentElement.remove();
-      Store.deleteTask(toDo.index);
-    });
-  }
-
-  static deleteTask(el) {
-    if (el.classList.contains('delete')) {
-      el.parentElement.remove();
+  taskList.innerHTML = '';
+  parsedArr.map((task) => {
+    const taskItem = document.createElement('li');
+    let box;
+    let styling;
+    if (task.completed) {
+      box = 'checked';
+      styling = 'line-through';
+    } else {
+      box = '';
+      styling = 'none';
     }
-  }
-
-  static editTask(eT) {
-    if (eT.classList.contains('edit')) {
-      eT.previousElementSibling.removeAttribute('readonly');
-      eT.previousElementSibling.focus();
-      eT.innerText = 'Save';
-      // eT.id = 'save';
-      eT.className = 'save';
-    } else if (eT.classList.contains('save')) {
-      eT.innerText = 'Edit';
-      // eT.id = 'edit';
-      eT.className = 'edit';
-      eT.previousElementSibling.readOnly = true;
-      console.log(eT.previousElementSibling.value, eT.id, eT);
-      Store.editTask(eT.previousElementSibling.value, eT.id);
-    }
-  }
+    taskItem.innerHTML = `<form class="task-form b-bottom box">
+      <input name="completed" type="checkbox" ${box} class="checkbox">
+      <textarea name="description" rows="1" class="task-text full" style="text-decoration:${styling}">${task.description}</textarea>
+      <button type="button" class="delete btn">
+      <i class="fa-solid fa-trash"></i>
+      </button>
+      <button type="submit" class="update btn">
+      <i class="fa-solid fa-pen"></i>
+      </button>
+      </form>`;
+  });
 }

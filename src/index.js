@@ -10,11 +10,3 @@ document.querySelector('#addBtn').addEventListener('click', add);
 document.querySelector('#toDoList').addEventListener('click', edit);
 
 document.addEventListener('DOMContentLoaded', interfaces.displayTasks);
-
-const clearBtn = document.querySelector('.clearCompleted');
-
-clearBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  clearTasks();
-  interfaces();
-});

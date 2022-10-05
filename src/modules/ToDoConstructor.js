@@ -1,7 +1,7 @@
 export default class ToDos {
-  constructor(value, index) {
-    this.value = value;
+  constructor(index, value) {
     this.index = index;
+    this.value = value;
     this.completed = false;
   }
 }
