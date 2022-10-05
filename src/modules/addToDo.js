@@ -1,11 +1,11 @@
-import ToDo from './toDoConstructor.js';
+import Todo from './toDoConstructor.js';
 
 /* Store Tasks */
 
 export default function addTask(task) {
   const toDos = JSON.parse(localStorage.getItem('toDos')) || [];
   const counter = toDos.length + 1;
-  const newTask = new ToDo(counter, task);
+  const newTask = new Todo(counter, task);
 
   toDos.push(newTask);
   localStorage.setItem('toDos', JSON.stringify(toDos));
