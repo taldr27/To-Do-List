@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Title
+# To-Do List Project
 
 > In this project I created a to do list where you can add, edit and delete tasks.
 
@@ -19,7 +19,7 @@
 - The use npm run start
 
 ### Live GitHub Page
-- Coming soon!
+- [Click here!](https://taldr27.github.io/toDoList/dist/)
 
 ## Authors
 
