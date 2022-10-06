@@ -1,26 +1,15 @@
-import Interface from './interfaceClass.js';
-import Store from './store.js';
-import ToDos from './ToDoConstructor.js';
+import Todo from './toDoConst.js';
 
-const add = (e) => {
-  const completed = 'asd';
-  e.preventDefault();
-  const text = document.getElementById('input-task').value;
+/* Store Tasks */
 
-  if (text === '') {
-    const section = document.getElementById('form-section');
-    const message = document.createElement('p');
-    message.innerHTML = 'Please put something into the fields';
-    section.insertAdjacentElement('afterend', message);
-    setTimeout(() => { message.remove(); }, 2000);
-  } else {
-    const toIndex = Store.getToDos().length + 1;
+export default function addTask(task) {
+  const toDos = JSON.parse(localStorage.getItem('toDos')) || [];
+  const counter = toDos.length + 1;
+  const newTask = new Todo(counter, task);
 
-    const toDo = new ToDos(text, completed, toIndex);
+  toDos.push(newTask);
+  localStorage.setItem('toDos', JSON.stringify(toDos));
 
-    Interface.addTask(toDo);
-    Store.addTask(toDo);
-  }
-};
-
-export default add;
+  const taskfield = document.querySelector('.text-field');
+  taskfield.value = '';
+}
