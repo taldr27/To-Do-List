@@ -22,27 +22,41 @@ body {
 }
 
 .input-task {
-  width: 80%;
+  width: 100%;
   border-color: transparent;
+  padding-block: 1em;
 }
 
 #addBtn {
-  width: 9%;
-  position: absolute;
+  width: 5%;
   background-color: transparent;
   border-color: transparent;
-  text-align: end;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  align-items: center;
 }
 
 .container > * {
   border-bottom: 1px solid #80808040;
-  padding: 0.7em;
+  padding-inline: 1em;
+}
+
+input:focus {
+  outline: none;
 }
 
 .ul-container {
   display: flex;
   flex-direction: column;
   padding: 0;
+}
+
+.title {
+  margin-top: 1em;
+  display: flex;
 }
 
 .ul-container li {
@@ -58,7 +72,7 @@ body {
 
 .clearCompleted {
   width: 100%;
-  padding: 0.5em;
+  padding: 1em;
 }
 
 .toDoList li {
