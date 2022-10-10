@@ -63,21 +63,4 @@ export default class Interface {
       el.parentElement.remove();
     }
   }
-
-  // static editTask(eT) {
-  //   if (eT.classList.contains('edit')) {
-  //     eT.previousElementSibling.removeAttribute('readonly');
-  //     eT.previousElementSibling.focus();
-  //     eT.innerText = 'Save';
-  //     // eT.id = 'save';
-  //     eT.className = 'save';
-  //   } else if (eT.classList.contains('save')) {
-  //     eT.innerText = 'Edit';
-  //     // eT.id = 'edit';
-  //     eT.className = 'edit';
-  //     eT.previousElementSibling.readOnly = true;
-  //     console.log(eT.previousElementSibling.value, eT.id, eT);
-  //     Store.editTask(eT.previousElementSibling.value, eT.id);
-  //   }
-  // }
 }
