@@ -53,6 +53,10 @@ export default class Store {
   static clearAll() {
     const toDos = Store.getToDos();
     const filter = toDos.filter((toDo) => toDo.completed === false);
+
+    toDos.forEach((toDo, i) => {
+      toDo.index = i + 1;
+    });
     localStorage.setItem('toDos', JSON.stringify(filter));
   }
 }
