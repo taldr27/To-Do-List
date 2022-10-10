@@ -1,20 +1,14 @@
 import './style.css';
-import addToDo from './modules/addToDo.js';
-import interfaceClass from './modules/interfaceClass.js';
-import clear from './modules/clear.js';
+import add from './modules/addToDo.js';
+import interfaces from './modules/interfaceClass.js';
+import Store from './modules/store.js';
 
-const form = document.querySelector('.form');
+document.addEventListener('DOMContentLoaded', interfaces.displayTasks);
+document.querySelector('#form-section').addEventListener('submit', add);
+document.querySelector('#addBtn').addEventListener('click', add);
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const input = Object.fromEntries(new FormData(e.target));
-  addToDo(input.task);
-  interfaceClass();
-});
-document.addEventListener('DOMContentLoaded', interfaceClass);
-const clearBtn = document.querySelector('.clearbtn');
-
-clearBtn.addEventListener('click', () => {
-  clear();
-  interfaceClass();
+const clearAll = document.querySelector('.clearCompleted');
+clearAll.addEventListener('click', () => {
+  Store.clearAll();
+  window.location.reload();
 });
