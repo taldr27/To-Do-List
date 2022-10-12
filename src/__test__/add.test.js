@@ -1,5 +1,4 @@
 import add from '../modules/addToDo.js';
-import interfaces from '../modules/interfaceClass.js';
 
 describe('adding', () => {
   document.body.innerHTML = `<div class="form-field">
@@ -22,5 +21,5 @@ describe('adding', () => {
     deleteBtn.click();
     const listElement = document.querySelectorAll('textarea');
     expect(listElement).toHaveLength(0);
-
-});})
+  });
+});
