@@ -14,8 +14,7 @@ describe('adding', () => {
   </ul>`;
   test('Should add one element when is called', () => {
     add('Hello');
-    interfaces.displayTasks();
-    const list = document.querySelectorAll('li');
-    expect(list).toHaveLength(2);
+    const list = document.querySelectorAll('textarea');
+    expect(list).toHaveLength(1);
   });
 });
