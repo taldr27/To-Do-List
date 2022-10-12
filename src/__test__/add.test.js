@@ -17,4 +17,10 @@ describe('adding', () => {
     const list = document.querySelectorAll('textarea');
     expect(list).toHaveLength(1);
   });
-});
+  test('Should remove one element when is called', () => {
+    const deleteBtn = document.querySelector('.delete');
+    deleteBtn.click();
+    const listElement = document.querySelectorAll('textarea');
+    expect(listElement).toHaveLength(0);
+
+});})

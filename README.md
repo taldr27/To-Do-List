@@ -14,6 +14,8 @@
 ## Getting Started
 
 ### Usage
+- Install Jest and Babel
+- Run npm test
 - Clone repo
 - Then use npm install webpack webpack-cli --save-dev
 - The use npm run start
