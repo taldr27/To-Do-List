@@ -16,7 +16,6 @@ export default class Interface {
     check.checked = toDo.completed;
 
     check.addEventListener('click', (e) => {
-      console.log(e.target.checked);
       toDo.completed = e.target.checked;
       Store.check(toDo.completed, toDo.index);
     });
@@ -43,7 +42,6 @@ export default class Interface {
       editBtn.addEventListener('click', () => {
         text.setAttribute('readonly', true);
         editBtn.innerHTML = 'Edit';
-        console.log(text.value, toDo.index);
         Store.editTask(text.value, toDo.index);
       });
     });
