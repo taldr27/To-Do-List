@@ -1,5 +1,6 @@
 import add from '../modules/addToDo.js';
 import Store from '../modules/store.js';
+import clearTasks from '../modules/clear.js';
 
 describe('editing', () => {
   document.body.innerHTML = `<div class="form-field">
@@ -28,5 +29,15 @@ describe('editing', () => {
       index: 1,
     };
     expect(Store.check(obj.completed, 1)).toBe(true);
+  });
+
+  test('This function should clear all elements', () => {
+    const obj2 = {
+      value: 'clear',
+      completed: true,
+      index: 1,
+    };
+    clearTasks(obj2);
+    expect(JSON.parse(localStorage.getItem('toDos'))).toEqual([]);
   });
 });
