@@ -20,6 +20,6 @@ describe('adding', () => {
     const deleteBtn = document.querySelector('.delete');
     deleteBtn.click();
     const listElement = document.querySelectorAll('textarea');
-    expect(listElement).toHaveLength(0);
+    expect(listElement.length).toBe(0);
   });
 });
