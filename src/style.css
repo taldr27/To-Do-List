@@ -43,6 +43,7 @@ body {
   margin-block: 1em;
   border-radius: 1em;
   padding: 1em;
+  font-size: 1em;
 }
 
 ::placeholder {
@@ -84,6 +85,7 @@ li {
   border: none;
   border-radius: 1em;
   color: white;
+  font-size: 0.8em;
 }
 
 .edit-active {
@@ -108,4 +110,9 @@ li {
 .clearCompleted {
   padding: 1em;
   width: 100%;
+}
+
+button,
+input[type='button'] {
+  font-size: 0.8em;
 }
