@@ -23,9 +23,13 @@ export default class Store {
         toDos.splice(id, 1);
       }
     });
-    toDos.forEach((toDo, i) => {
-      toDo.index = i + 1;
+    toDos.forEach((t, i) => {
+      if (t.index !== element) {
+        t.index = i + 1;
+      }
     });
+    const elimi = document.getElementById(`Delete-${element}`);
+    elimi.parentElement.remove();
     localStorage.setItem('toDos', JSON.stringify(toDos));
   }
 

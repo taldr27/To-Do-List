@@ -47,18 +47,18 @@ export default class Interface {
     });
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = `<button id=${toDo.index} class="delete">Delete</button>`;
+    deleteBtn.id = `Delete-${toDo.index}`;
+    deleteBtn.innerHTML = '<button class="delete">Delete</button>';
     ulList.appendChild(task);
     task.appendChild(deleteBtn);
     deleteBtn.addEventListener('click', () => {
-      deleteBtn.parentElement.remove();
       Store.deleteTask(toDo.index);
+      Interface.deleteTask(toDo.index);
     });
   }
 
   static deleteTask(el) {
-    if (el.classList.contains('delete')) {
-      el.parentElement.remove();
-    }
+    const elimi = document.getElementById(`Delete-${el}`);
+    elimi.parentElement.remove();
   }
 }
