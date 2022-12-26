@@ -21,13 +21,14 @@ body {
   background-size: cover;
   color: white;
   background-position: center;
+  padding: 1.5em;
 }
 
 .container {
-  background-color: #cddf2d5e;
+  background-color: #2b3b11b0;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   border-radius: 1em;
   padding: 1em;
 }
@@ -35,7 +36,7 @@ body {
 .input-task {
   width: 100%;
   color: white;
-  background-color: #cddf2d5e;
+  background-color: #cddf2d12;
   border: none;
   outline: none;
   padding-block: 1em;
@@ -79,9 +80,10 @@ li {
   margin-inline: 0.5em;
   padding: 0.7em;
   outline: none;
-  background-color: #cddf2d5e;
+  background-color: #cddf2d12;
   border: none;
   border-radius: 1em;
+  color: white;
 }
 
 .edit-active {
@@ -101,4 +103,9 @@ li {
   outline: none;
   border: none;
   border-radius: 0.3em;
+}
+
+.clearCompleted {
+  padding: 1em;
+  width: 100%;
 }
