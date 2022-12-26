@@ -20,7 +20,7 @@ export default class Interface {
       Store.check(toDo.completed, toDo.index);
     });
 
-    const text = document.createElement('textarea');
+    const text = document.createElement('input');
     text.id = 'task-value';
     text.readOnly = true;
     text.classList.add('text-area');
@@ -52,13 +52,13 @@ export default class Interface {
     ulList.appendChild(task);
     task.appendChild(deleteBtn);
     deleteBtn.addEventListener('click', () => {
-      Store.deleteTask(toDo.index);
-      Interface.deleteTask(toDo.index);
+      const message = document.createElement('p');
+      message.innerHTML = 'Delete in progress';
+      task.appendChild(message);
+      setTimeout(() => {
+        Store.deleteTask(toDo.index);
+        window.location.reload();
+      }, 500);
     });
-  }
-
-  static deleteTask(el) {
-    const elimi = document.getElementById(`Delete-${el}`);
-    elimi.parentElement.remove();
   }
 }
