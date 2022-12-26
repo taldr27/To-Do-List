@@ -36,19 +36,23 @@ export default class Interface {
     task.appendChild(editBtn);
 
     editBtn.addEventListener('click', () => {
-      text.removeAttribute('readonly');
-      editBtn.innerHTML = 'Save';
-      text.focus();
-      editBtn.addEventListener('click', () => {
+      if (text.hasAttribute('readonly')) {
+        text.removeAttribute('readonly');
+        editBtn.innerHTML = 'Save';
+        text.focus();
+        text.classList.toggle('edit-active');
+      } else {
         text.setAttribute('readonly', true);
         editBtn.innerHTML = 'Edit';
+        text.classList.toggle('edit-active');
         Store.editTask(text.value, toDo.index);
-      });
+      }
     });
 
     const deleteBtn = document.createElement('button');
     deleteBtn.id = `Delete-${toDo.index}`;
-    deleteBtn.innerHTML = '<button class="delete">Delete</button>';
+    deleteBtn.innerHTML = 'Delete';
+    deleteBtn.classList = 'delete';
     ulList.appendChild(task);
     task.appendChild(deleteBtn);
     deleteBtn.addEventListener('click', () => {
@@ -58,7 +62,7 @@ export default class Interface {
       setTimeout(() => {
         Store.deleteTask(toDo.index);
         window.location.reload();
-      }, 500);
+      }, 100);
     });
   }
 }
