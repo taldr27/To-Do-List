@@ -21,16 +21,16 @@ body {
   background-size: cover;
   color: white;
   background-position: center;
-  padding: 1.5em;
 }
 
 .container {
-  background-color: #2b3b11b0;
+  background-color: #2b3b11db;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: 100%;
   border-radius: 1em;
   padding: 1em;
+  margin: 1.5em;
 }
 
 .input-task {
@@ -85,7 +85,7 @@ li {
   border: none;
   border-radius: 1em;
   color: white;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 .edit-active {
@@ -114,5 +114,53 @@ li {
 
 button,
 input[type='button'] {
-  font-size: 0.8em;
+  font-size: 0.9em;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: white;
+  font: inherit;
+  color: white;
+  width: 1.2em;
+  height: 1em;
+  border: 0.1em solid white;
+  border-radius: 0.25em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  margin-right: -0.1em;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  border-radius: 0.1em;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+  background-color: #6c691b;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 30%;
+    margin: 1.5em;
+  }
+
+  input[type="checkbox"] {
+    width: 1.5em;
+    height: 1.2em;
+  }
+  input[type="checkbox"]::before {
+    width: 0.75em;
+    height: 0.75em;
+  }
 }
