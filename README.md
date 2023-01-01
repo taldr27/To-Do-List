@@ -21,7 +21,7 @@
 - The use npm run start
 
 ### Live GitHub Page
-- [Click here!](https://taldr27.github.io/toDoList/dist/)
+- [Click here!](https://taldr27.github.io/To-Do-List/)
 
 ## Authors
 
