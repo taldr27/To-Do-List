@@ -20,3 +20,7 @@ clearAll.addEventListener('click', () => {
   Store.clearAll();
   window.location.reload();
 });
+
+document.querySelector('.fa-solid').addEventListener('click', () => {
+  window.location.reload();
+});
