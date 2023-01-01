@@ -56,13 +56,11 @@ export default class Interface {
     ulList.appendChild(task);
     task.appendChild(deleteBtn);
     deleteBtn.addEventListener('click', () => {
-      const message = document.createElement('p');
-      message.innerHTML = 'Delete in progress';
-      task.insertAdjacentElement('beforebegin', message);
+      text.value = 'Deleting';
       setTimeout(() => {
         Store.deleteTask(toDo.index);
         window.location.reload();
-      }, 1000);
+      }, 500);
     });
   }
 }
