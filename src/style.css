@@ -97,6 +97,11 @@ li {
   font-size: 1em;
 }
 
+.completed {
+  text-decoration: line-through;
+  background-color: #cddf2d47;
+}
+
 .edit-active {
   border: 2px solid black;
 }

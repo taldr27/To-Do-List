@@ -15,16 +15,27 @@ export default class Interface {
     check.id = 'completed';
     check.checked = toDo.completed;
 
-    check.addEventListener('click', (e) => {
-      toDo.completed = e.target.checked;
-      Store.check(toDo.completed, toDo.index);
-    });
-
     const text = document.createElement('input');
     text.id = 'task-value';
     text.readOnly = true;
     text.classList.add('text-area');
     text.value = toDo.value;
+
+    if (check.checked) {
+      text.classList.add('completed');
+    }
+
+    check.addEventListener('click', (e) => {
+      if (e.target.checked) {
+        text.classList.add('completed');
+        toDo.completed = e.target.checked;
+        Store.check(toDo.completed, toDo.index);
+      } else {
+        text.classList.remove('completed');
+        toDo.completed = e.target.checked;
+        Store.check(toDo.completed, toDo.index);
+      }
+    });
 
     const editBtn = document.createElement('button');
     editBtn.id = toDo.index;
